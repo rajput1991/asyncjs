@@ -23,7 +23,7 @@ function createPost(post) {
         setTimeout(() => {
             posts.push(post);
             //  callback();
-            const error = false;
+            const error = true;
             if (!error) {
                 resolve();
             }
@@ -36,4 +36,5 @@ function createPost(post) {
 
 }
 // since it returns promise ,means we can use .then syntax
-createPost({ title: 'post three', body: 'THis is post 3' }).then(getPosts);
+// so if promise is resolved , then it calls getPosts
+createPost({ title: 'post three', body: 'THis is post 3' }).then(getPosts).catch(err=>console.log(err));
