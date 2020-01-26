@@ -17,11 +17,13 @@ function getPosts() {
     }, 1000);
 }
 
-function createPost(post){
+function createPost(post,callback){
     setTimeout(() => {
         posts.push(post);
+        callback();
     }, 2000);
 }
-getPosts();
-createPost({ title: 'post three', body: 'THis is post 3' });
+//getPosts();
+createPost({ title: 'post three', body: 'THis is post 3' },getPosts);
 // Note that get post took 1 sec while create post took 2 sec..and thats why we dont see post 3, because by that time DOM is already painted
+// THat is why we need callbacks and sync programming to solve this problem.
