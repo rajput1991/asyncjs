@@ -37,4 +37,10 @@ function createPost(post) {
 }
 // since it returns promise ,means we can use .then syntax
 // so if promise is resolved , then it calls getPosts
-createPost({ title: 'post three', body: 'THis is post 3' }).then(getPosts).catch(err=>console.log(err));
+//createPost({ title: 'post three', body: 'THis is post 3' }).then(getPosts).catch(err=>console.log(err));
+const promise1 = Promise.resolve('Hello world');
+const promise2 = 10;
+const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 2000, 'good bye'));
+Promise.all([promise1, promise2, promise3]).then((values) => console.log(values));
+
+
